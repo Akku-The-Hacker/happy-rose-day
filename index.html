@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Mobile First -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Happy Rose Day 🌹</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ------------------ RESET ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------ BODY ------------------ */
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #2b1055, #0b0620 65%);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #ffffff;
+}
+
+/* ------------------ FLOATING ROSES ------------------ */
+.rose {
+    position: fixed;
+    top: -40px;
+    font-size: 22px;
+    animation: fall linear infinite;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(120vh) rotate(360deg);
+    }
+}
+
+/* ------------------ CARD ------------------ */
+.card {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+    margin: 70px auto 120px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    border-radius: 26px;
+    padding: 32px 26px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(255,77,109,0.45);
+    animation: fadeUp 1.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------ HEADING ------------------ */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: #ff4d6d;
+    margin-bottom: 16px;
+    text-shadow: 0 0 18px rgba(255,77,109,0.6);
+}
+
+/* ------------------ SHAYARI ------------------ */
+.shayari {
+    font-family: 'Playfair Display', serif;
+    font-size: 16.5px;
+    line-height: 1.9;
+    opacity: 0;
+    animation: reveal 2.5s forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes reveal {
+    to { opacity: 1; }
+}
+
+.highlight {
+    color: #ffd6e0;
+    font-style: italic;
+}
+
+.name {
+    color: #ff9bb3;
+    font-weight: 500;
+    text-shadow: 0 0 12px rgba(255,155,179,0.9);
+}
+
+/* ------------------ SIGNATURE ------------------ */
+.signature {
+    margin-top: 26px;
+    font-style: italic;
+    color: #ffb3c6;
+    font-size: 14.5px;
+    opacity: 0;
+    animation: reveal 2s forwards;
+    animation-delay: 4s;
+}
+
+/* ------------------ FOOTER ------------------ */
+.footer {
+    text-align: center;
+    font-size: 12.5px;
+    opacity: 0.65;
+    margin-bottom: 40px;
+}
+
+/* ------------------ DESKTOP SCALE ------------------ */
+@media (min-width: 768px) {
+    h1 { font-size: 36px; }
+    .shayari { font-size: 18px; }
+    .card { padding: 44px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CARD -->
+<div class="card">
+    <h1>Happy Rose Day 🌹</h1>
+
+    <div class="shayari">
+        <span class="highlight">
+        “Gulab sirf ek phool hi toh hai,<br>
+        ishq ho toh <span class="name">Manisha</span> jaisa ho,<br>
+        jo noor bhi ho, sukoon bhi,<br>
+        aur thodi si bekhudi bhi ho.” 🌙
+        </span>
+
+        <br><br>
+
+        Tumhari aankhon mein jo <em>noor</em> hai na,<br>
+        woh sirf roshni nahi —<br>
+        ek aadat hai,<br>
+        jo dekhne wale ko dheere-dheere<br>
+        tumhara bana leti hai 😏
+
+        <br><br>
+
+        Tumhari muskurahat ka asar itna khamosh hai,<br>
+        ki dil ko baad mein samajh aata hai,<br>
+        ke woh kab tum par<br>
+        thoda zyada hi thehar gaya 😌
+
+        <br><br>
+
+        <span class="highlight">
+        “Ishq mein sukoon bhi tum ho,<br>
+        aur bechaini ki wajah bhi,<br>
+        yeh kaunsa jaadu hai <span class="name">Manisha</span>,<br>
+        jo dono ek saath kar jaati ho?” 😈
+        </span>
+
+        <br><br>
+
+        Gulab ka rang feeka lagne lage,<br>
+        jab tum paas ho,<br>
+        aur phir shikayat bhi kaisi<br>
+        agar main tum par<br>
+        roz thoda aur fida hota jaaun 🌹
+    </div>
+
+    <div class="signature">
+        — Always flirting with you,<br>
+        Aakash ❤️
+    </div>
+</div>
+
+<div class="footer">
+    Valentine Week • Rose Day 🌹
+</div>
+
+<!-- FLOATING ROSES SCRIPT -->
+<script>
+const symbols = ["🌹","🌸","🌺","💖","✨"];
+
+for (let i = 0; i < 28; i++) {
+    const rose = document.createElement("div");
+    rose.className = "rose";
+    rose.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+    rose.style.left = Math.random() * 100 + "vw";
+    rose.style.animationDuration = (7 + Math.random() * 6) + "s";
+    rose.style.fontSize = (18 + Math.random() * 18) + "px";
+    document.body.appendChild(rose);
+}
+</script>
+
+</body>
+</html>
 
